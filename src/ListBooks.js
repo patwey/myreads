@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Bookshelf from './Bookshelf';
 
 function ListBooks({
   books,
   shelves,
-  showSearchPage,
   title,
   updateShelf,
 }) {
@@ -28,8 +28,9 @@ function ListBooks({
         ))}
       </div>
       <div className="open-search">
-        {/* TODO: use React router */}
-        <button onClick={showSearchPage}>Add a book</button>
+        <Link to="/search">
+          Add a book
+        </Link>
       </div>
     </div>
   );
@@ -41,7 +42,6 @@ ListBooks.propTypes = {
     title: PropTypes.string,
     value: PropTypes.string,
   })).isRequired,
-  showSearchPage: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   updateShelf: PropTypes.func.isRequired,
 };

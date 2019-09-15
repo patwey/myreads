@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Bookshelf from './Bookshelf';
 
 class SearchBooks extends Component {
@@ -7,7 +8,6 @@ class SearchBooks extends Component {
     searchBooks: PropTypes.func.isRequired,
     books: PropTypes.arrayOf(PropTypes.object).isRequired,
     shelves: PropTypes.arrayOf(PropTypes.object).isRequired,
-    showMainPage: PropTypes.func.isRequired,
     updateShelf: PropTypes.func.isRequired,
   };
 
@@ -27,7 +27,6 @@ class SearchBooks extends Component {
     const { 
       books,
       shelves,
-      showMainPage,
       updateShelf,
     } = this.props;
     const { query } = this.state;
@@ -35,7 +34,9 @@ class SearchBooks extends Component {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <button className="close-search" onClick={showMainPage}>Close</button>
+          <Link className="close-search" to="/">
+            Close
+          </Link>
           <div className="search-books-input-wrapper">
             {/*
               NOTES: The search from BooksAPI is limited to a particular set of search terms.

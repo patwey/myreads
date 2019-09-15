@@ -1,5 +1,6 @@
 import React from 'react';
 import update from 'immutability-helper';
+import { Route } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI'
 import './App.css';
 import ListBooks from './ListBooks';
@@ -9,13 +10,6 @@ class BooksApp extends React.Component {
   state = {
     books: [],
     searchedBooks: [],
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-    showSearchPage: false,
   };
 
   shelves = [
@@ -75,28 +69,34 @@ class BooksApp extends React.Component {
     const {
       books,
       searchedBooks,
-      showSearchPage
     } = this.state;
 
     return (
       <div className="app">
-        {showSearchPage ? (
-          <SearchBooks
-            books={searchedBooks}
-            searchBooks={(query) => this.searchBooks(query)}
-            shelves={this.shelves}
-            showMainPage={() => this.setState({showSearchPage: false })}
-            updateShelf={(book, shelf) => this.updateShelf(book, shelf)}
-          />
-        ) : (
-          <ListBooks
-            books={books}
-            shelves={this.shelves}
-            showSearchPage={() => this.setState({ showSearchPage: true })}
-            title="MyReads"
-            updateShelf={(book, shelf) => this.updateShelf(book, shelf)}
-          />
-        )}
+        <Route
+          path="/search"
+          render={() => (
+            <SearchBooks
+              books={searchedBooks}
+              searchBooks={(query) => this.searchBooks(query)}
+              shelves={this.shelves}
+              showMainPage={() => this.setState({ showSearchPage: false })}
+              updateShelf={(book, shelf) => this.updateShelf(book, shelf)}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <ListBooks
+              books={books}
+              shelves={this.shelves}
+              title="MyReads"
+              updateShelf={(book, shelf) => this.updateShelf(book, shelf)}
+            />
+          )}
+        />
       </div>
     )
   }
