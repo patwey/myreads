@@ -14,16 +14,22 @@ function Book({
     title,
   } = book;
 
+  let coverStyles = {
+    width: 128,
+    height: 193,
+  }
+
+  if (imageLinks) {
+    coverStyles.backgroundImage = `url("${imageLinks.smallThumbnail}")`
+  }
+
   return (
     <div className="book">
       <div className="book-top">
         <div
           className="book-cover"
-          style={{
-            width: 128,
-            height: 193,
-            backgroundImage: `url("${imageLinks.smallThumbnail}")`,
-          }}
+          title='Book Cover'
+          style={coverStyles}
         >
         </div>
         <BookshelfChanger
@@ -33,17 +39,19 @@ function Book({
         />
       </div>
       <div className="book-title">{title}</div>
-      <div className="book-authors">{authors.join(", ")}</div>
+      { authors && (
+        <div className="book-authors">{authors.join(", ")}</div>
+      )}
     </div>
   );
 }
 
 Book.propTypes = {
   book: PropTypes.shape({
-    authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    authors: PropTypes.arrayOf(PropTypes.string),
     imageLinks: PropTypes.shape({
       smallThumbnail: PropTypes.string,
-    }).isRequired,
+    }),
     shelf: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,  
   }).isRequired,
