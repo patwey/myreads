@@ -17,10 +17,10 @@ function Book({
   let coverStyles = {
     width: 128,
     height: 193,
-  }
+  };
 
   if (imageLinks) {
-    coverStyles.backgroundImage = `url("${imageLinks.smallThumbnail}")`
+    coverStyles.backgroundImage = `url("${imageLinks.smallThumbnail}")`;
   }
 
   return (
@@ -40,7 +40,7 @@ function Book({
       </div>
       <div className="book-title">{title}</div>
       { authors && (
-        <div className="book-authors">{authors.join(", ")}</div>
+        <div className="book-authors">{authors.join(', ')}</div>
       )}
     </div>
   );

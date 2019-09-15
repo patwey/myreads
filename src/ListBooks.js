@@ -9,7 +9,7 @@ function ListBooks({
   title,
   updateShelf,
 }) {
-  const visibleShelves = shelves.filter(({ value }) => value !== 'none')
+  const visibleShelves = shelves.filter(({ value }) => value !== 'none');
 
   return (
     <div className="list-books">

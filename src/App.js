@@ -1,7 +1,7 @@
 import React from 'react';
 import update from 'immutability-helper';
 import { Route } from 'react-router-dom';
-import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI';
 import './App.css';
 import ListBooks from './ListBooks';
 import SearchBooks from './SearchBooks';
@@ -29,7 +29,7 @@ class BooksApp extends React.Component {
     BooksAPI
       .update(book, shelf)
       .then((shelves) => {
-        const newShelf = Object.entries(shelves).find(([_, ids]) => ids.includes(book.id));
+        const newShelf = Object.entries(shelves).find(([, ids]) => ids.includes(book.id));
         const newShelfValue = newShelf ? newShelf[0] : this.defaultShelfValue;
 
         this.setState((prevState) => {
@@ -98,8 +98,8 @@ class BooksApp extends React.Component {
           )}
         />
       </div>
-    )
+    );
   }
 }
 
-export default BooksApp
+export default BooksApp;
