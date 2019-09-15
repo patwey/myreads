@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Displays an input for updating a Book's shelf
+ */
 function BookshelfChanger({
   currentShelf,
   shelves,

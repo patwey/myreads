@@ -6,6 +6,10 @@ import './App.css';
 import ListBooks from './ListBooks';
 import SearchBooks from './SearchBooks';
 
+/**
+ * Displays the home page or the search page depending on the route. Holds the
+ * state of the books in the app.
+ */
 class BooksApp extends React.Component {
   state = {
     books: [],

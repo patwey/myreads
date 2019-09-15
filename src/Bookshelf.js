@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Book from './Book';
 
+/**
+ * Displays a title and list of Books
+ */
 function Bookshelf({
   books,
   shelves,

@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Bookshelf from './Bookshelf';
 
+/**
+ * Displays a search bar, a link to the homepage, and a Bookshelf of books
+ * matching the search query
+ */
 class SearchBooks extends Component {
   static propTypes = {
     searchBooks: PropTypes.func.isRequired,

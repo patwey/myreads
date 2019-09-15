@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Bookshelf from './Bookshelf';
 
+/**
+ * Displays a list of Bookshelves and a link to the search page
+ */
 function ListBooks({
   books,
   shelves,

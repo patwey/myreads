@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BookshelfChanger from './BookshelfChanger';
 
+/**
+ * Displays book data and a BookshelfChanger
+ */
 function Book({
   book,
   shelves,
