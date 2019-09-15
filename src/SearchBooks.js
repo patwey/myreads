@@ -60,7 +60,6 @@ class SearchBooks extends Component {
               books={books}
               key='results'
               shelves={shelves}
-              title='Results'
               updateShelf={updateShelf}
             />
           )}

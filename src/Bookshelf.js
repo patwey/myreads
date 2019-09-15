@@ -11,7 +11,9 @@ function Bookshelf({
 
   return (
     <div className="bookshelf">
-      <h2 className="bookshelf-title">{title}</h2>
+      { title && (
+        <h2 className="bookshelf-title">{title}</h2>
+      )}
       <div className="bookshelf-books">
         <ol className="books-grid">
           { books.map((book) => (
@@ -34,7 +36,7 @@ Bookshelf.propTypes = {
     id: PropTypes.string,
   })).isRequired,
   shelves: PropTypes.arrayOf(PropTypes.object).isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   updateShelf: PropTypes.func.isRequired,
 };
 
