@@ -18,4 +18,4 @@ It allows you to search for and save books to shelves, including:
 ## Search Limitations
 
 In the interest of scope, the book search API for this project has been limited
-to the terms that can be found (here)[https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md]
+to the terms that can be found [here](https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md)
