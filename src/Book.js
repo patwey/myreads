@@ -31,7 +31,6 @@ function Book({
       <div className="book-top">
         <div
           className="book-cover"
-          title='Book Cover'
           style={coverStyles}
         >
         </div>
